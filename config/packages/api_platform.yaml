@@ -1,0 +1,33 @@
+api_platform:
+  title: Hello API Platform
+  version: 1.0.0
+
+  # Keep defaults
+  defaults:
+    stateless: true
+    cache_headers:
+      vary: ['Content-Type', 'Authorization', 'Origin']
+
+  # Turn GraphQL on
+  graphql:
+    enabled: true
+
+  # Make sure REST & GraphQL have common formats
+  formats:
+    jsonld: ['application/ld+json']
+    json:   ['application/json']
+    html:   ['text/html']  # useful for quick checks in browser
+
+  # PATCH support
+  patch_formats:
+    json: ['application/merge-patch+json']
+
+  # Where to scan for resources (entities/DTOs)
+  mapping:
+    paths:
+      - '%kernel.project_dir%/src/Entity'
+      # - '%kernel.project_dir%/src/ApiResource' # (optional if use DTO)
+
+  # OpenAPI for REST
+  swagger:
+    versions: [3]
