@@ -8,6 +8,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/doctrine-orm": "^4.2",
+        "api-platform/graphql": "*",
         "api-platform/symfony": "^4.2",
         "doctrine/dbal": "^3",
         "doctrine/doctrine-bundle": "^2.16",
@@ -29,7 +30,8 @@
         "symfony/serializer": "6.4.*",
         "symfony/twig-bundle": "6.4.*",
         "symfony/validator": "6.4.*",
-        "symfony/yaml": "6.4.*"
+        "symfony/yaml": "6.4.*",
+        "webonyx/graphql-php": "*"
     },
     "config": {
         "allow-plugins": {
