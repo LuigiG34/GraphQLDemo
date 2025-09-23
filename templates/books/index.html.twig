@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Books ({{ total }})</h1>
+<table>
+  <thead>
+    <tr><th>ID</th><th>Title</th><th>Author</th><th>Published</th><th>Actions</th></tr>
+  </thead>
+  <tbody>
+  {% for b in books %}
+    {% set idNum = b.id|replace({'/api/books/':''}) %}
+    <tr>
+      <td>{{ idNum }}</td>
+      <td><a href="{{ path('books_show', {id: idNum}) }}">{{ b.title }}</a></td>
+      <td>{{ b.author ? b.author.name : '—' }}</td>
+      <td>{{ b.publishedAt ?: '—' }}</td>
+      <td>
+        <form method="post" action="{{ path('books_delete', {id: idNum}) }}" onsubmit="return confirm('Delete this book?')">
+          <button>Delete</button>
+        </form>
+      </td>
+    </tr>
+  {% else %}
+    <tr><td colspan="5">No books yet.</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
