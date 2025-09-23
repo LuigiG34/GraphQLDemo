@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>New Book</h1>
+<form method="post">
+  <p>
+    <label>Title<br><input name="title" required></label>
+  </p>
+  <p>
+    <label>Published at (ISO: 1965-01-01T00:00:00+00:00)<br><input name="publishedAt" placeholder="optional"></label>
+  </p>
+  <p>
+    <label>Author<br>
+      <select name="authorIri">
+        <option value="">— none —</option>
+        {% for a in authors %}
+          <option value="/authors/{{ a.id|replace({'/authors/':''}) }}">{{ a.name }}</option>
+        {% endfor %}
+      </select>
+    </label>
+  </p>
+  <button type="submit">Create</button>
+</form>
+{% endblock %}
