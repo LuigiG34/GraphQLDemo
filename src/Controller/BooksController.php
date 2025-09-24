@@ -109,7 +109,7 @@ final class BooksController extends AbstractController
         }
         GQL;
 
-        $data = $this->gql($query, ['id' => "/books/$id"]);
+        $data = $this->gql($query, ['id' => "/api/books/$id"]);
         if (!($data['book'] ?? null)) {
             throw $this->createNotFoundException();
         }
@@ -125,7 +125,7 @@ final class BooksController extends AbstractController
         GQL;
 
         try {
-            $this->gql($mutation, ['id' => "/books/$id"]);
+            $this->gql($mutation, ['id' => "/api/books/$id"]);
             $this->addFlash('success', 'Book deleted.');
         } catch (\Throwable $e) {
             $this->addFlash('error', $e->getMessage());
