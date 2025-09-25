@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Authors ({{ total }})</h1>
+<ul>
+  {% for a in authors %}
+    <li>#{{ a.id|replace({'/api/authors/':'','/authors/':''}) }} — {{ a.name }}</li>
+  {% else %}
+    <li>No authors.</li>
+  {% endfor %}
+</ul>
+<p><a href="{{ path('authors_new') }}">Create a new author</a></p>
+{% endblock %}
